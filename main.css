@@ -35,7 +35,7 @@ html.dark{
 
 /* Fallback for users that prefer a dark scheme */
 @media (prefers-color-scheme: dark){
-  :root:not(.dark){
+  :root:not(.dark):not(.light){
     --color-bg:#1c1c1c;
     --color-text:#e5e5e5;
     --color-anchor:#c3a554;

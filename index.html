@@ -28,7 +28,13 @@
   
   const toggleDarkMode = () => {
     const root = document.querySelector('html');
-    root.classList.toggle('dark');
+    if (root.classList.contains('dark')) {
+      root.classList.remove('dark');
+      root.classList.add('light');
+    } else {
+      root.classList.remove('light');
+      root.classList.add('dark');
+    }
   }
 
   const toggleColorScheme = () => {
@@ -38,19 +44,12 @@
   }
 
   const handleToggle = () => {
-    console.log('Toggle clicked, current localStorage:', localStorage.getItem('colorScheme'));
-    console.log('HTML classes before:', document.querySelector('html').className);
     toggleDarkMode();
     toggleColorScheme();
-    console.log('HTML classes after:', document.querySelector('html').className);
-    console.log('New localStorage:', localStorage.getItem('colorScheme'));
   };
   
   if (toggle) {
-    console.log('Toggle element found, attaching listener');
     toggle.addEventListener('change', handleToggle);
-  } else {
-    console.log('ERROR: Toggle element not found!');
   }
 
   const checkColorScheme = () => {
