@@ -40,9 +40,12 @@ const checkColorScheme = () => {
     } else {
       localStorage.setItem('colorScheme', 'light');
     }
-  } else if (colorScheme === 'dark' && toggle) {
-    toggle.checked = true;
+  } else if (colorScheme === 'dark') {
+    if (toggle) toggle.checked = true;
     document.querySelector('html').classList.add('dark');
+  } else if (colorScheme === 'light') {
+    if (toggle) toggle.checked = false;
+    document.querySelector('html').classList.add('light');
   }
 }
 checkColorScheme();
