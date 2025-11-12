@@ -4,19 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
 (function() {
-  console.log('[Dark Mode INIT] Running inline initialization script');
   try {
     const colorScheme = localStorage.getItem('colorScheme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = colorScheme || (prefersDark ? 'dark' : 'light');
-    console.log('[Dark Mode INIT] colorScheme:', colorScheme, 'prefersDark:', prefersDark, 'theme:', theme);
     document.documentElement.className = theme;
-    console.log('[Dark Mode INIT] Set html class to:', theme);
   } catch(e) {
-    console.log('[Dark Mode INIT] Error:', e.message);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.className = prefersDark ? 'dark' : 'light';
-    console.log('[Dark Mode INIT] Fallback to:', prefersDark ? 'dark' : 'light');
   }
 })();
 </script>
@@ -26,6 +21,37 @@
 <meta name="description" content="Space to post ideas">
 
 <title>Julian Moncarz's blog</title>
+
+<style>
+.corner-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 57.5px;
+  height: 57.5px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 100;
+}
+
+@media only screen and (max-width: 768px) {
+  .corner-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.corner-icon:hover {
+  opacity: 1;
+}
+
+.corner-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--color-text);
+  transition: transform 0.7s ease-in-out;
+}
+</style>
 </head>
 <body>
 <div class="container-fluid markdown-body">
@@ -43,11 +69,9 @@
 
 <script src="./dark-mode-toggle.js"></script>
 
-<div class="site-header">
-  <h1 class="site-title">Julian Moncarz</h1>
-</div>
-
-<hr>
+<br>
+<h1 style="margin-bottom:7px">Julian Moncarz</h1>
+<br> <br>
 
 <ul class="post-list">
 
@@ -60,5 +84,39 @@
 
 </ul>
 </div>
+
+<!-- Corner Icon Link -->
+<a href="https://julianmoncarz.netlify.app" class="corner-icon" target="_blank" title="Visit main site">
+  <svg viewBox="0 0 100 100" fill="none" stroke-width="1.5">
+    <path d="M50 2 L52 46 L54 48 L90 50 L54 52 L52 54 L50 90 L48 54 L46 52 L10 50 L46 48 L48 46 Z"/>
+    <path d="M35 35 L50 50 L65 35 M65 65 L50 50 L35 65 M65 35 L50 50 L65 65 M35 65 L50 50 L35 35" 
+          stroke-width="1" opacity="0.5"/>
+    <circle cx="50" cy="50" r="12" stroke-width="2"/>
+    <circle cx="50" cy="50" r="4" fill="currentColor"/>
+  </svg>
+</a>
+
+<script>
+(function() {
+  const compass = document.querySelector('.corner-icon svg');
+  let currentRotation = 0;
+  
+  function rotateCompass() {
+    const degrees = Math.random() * (30 - 5) + 5; // Random between 5 and 30
+    const direction = Math.random() < 0.5 ? -1 : 1; // Random left or right
+    currentRotation += degrees * direction;
+    compass.style.transform = `rotate(${currentRotation}deg)`;
+  }
+  
+  // Rotate after 0.5 seconds
+  setTimeout(rotateCompass, 500);
+  
+  // Rotate every 10 seconds after the first rotation
+  setTimeout(() => {
+    setInterval(rotateCompass, 10000);
+  }, 500);
+})();
+</script>
+
 </body>
 </html>
