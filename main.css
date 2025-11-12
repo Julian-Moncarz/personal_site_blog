@@ -7,7 +7,7 @@
 :root{
   --color-bg:#fff;
   --color-text:#333;
-  --color-anchor:#337ab7;
+  --color-anchor:#1558a8;
   --color-heading:#111;
   --color-divider:#cdcdcd;
   --color-code-bg:#f7f7f7;
@@ -15,14 +15,14 @@
   --color-table-border:#c2c2c2;
   --color-table-row-even:#f0f0f0;
   --color-table-row-odd:#fff;
-  --color-toggle-accent: #c3a554;
+  --color-toggle-accent: #1558a8;
 }
 
 /* Dark mode toggled with <html class="dark"> */
 html.dark{
   --color-bg:#1c1c1c;
   --color-text:#e5e5e5;
-  --color-anchor:#c3a554;
+  --color-anchor:#d4af5c;
   --color-heading:#fff;
   --color-divider:#444;
   --color-code-bg:#2d2d2d;
@@ -30,6 +30,7 @@ html.dark{
   --color-table-border:#444;
   --color-table-row-even:#262626;
   --color-table-row-odd:#1c1c1c;
+  --color-toggle-accent: #d4af5c;
 }
 
 /* Fallback for users that prefer a dark scheme */
@@ -110,14 +111,14 @@ img,svg{max-width:100%;height:auto;}
 #color-mode-switch{display:flex;align-items:center;}
 #color-mode-switch label{cursor:pointer;font-size:.875rem;user-select:none;}
 
-/* Responsive typography */
-@media only screen and (orientation: portrait) {
-  .markdown-body{max-width:1000px; padding: 40px;}
-  h1{font-size:4rem;}
-  h2{font-size:3.5rem;}
-  h3{font-size:3rem;}
-  .markdown-body p,li,div,span,code,table {font-size: 1.8rem;}
-  .markdown-body small {font-size: 1.4rem;}
+/* Responsive typography - Mobile */
+@media only screen and (max-width: 768px) {
+  .markdown-body{max-width:100%; padding: 20px;}
+  h1{font-size:2.5rem;}
+  h2{font-size:2rem;}
+  h3{font-size:1.75rem;}
+  .markdown-body p,li,div,span,code,table {font-size: 1.1rem;}
+  .markdown-body small {font-size: 0.95rem;}
 }
 
 /* Simple clearfix for floats */
@@ -186,47 +187,78 @@ img,svg{max-width:100%;height:auto;}
   width: 30px;
 }
 
+/* Site header and navigation */
+.site-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.site-title {
+  border-bottom: none !important;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.site-header + hr {
+  margin-bottom: 2.5rem;
+}
+
+.site-nav {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Post list */
 .post-list {
   margin-left: 0;
   padding-left: 0;
-  list-style: none; }
-  .post-list > li {
-    margin-bottom: 30px;
-    }
-
-@media only screen and (orientation: landscape) {
-    .post-link {
-      display: block;
-      font-size: 24px; }
-
-    .post-meta {
-      font-size: 14px;
-      color: #515151; }
-
-    .toc-category {
-      display: inline-block;
-      width: 100px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      padding-right: 4px;
-      padding-left: 4px; }
+  list-style: none;
+  margin-top: 0;
 }
 
-@media only screen and (orientation: portrait) {
-    .post-link {
-      display: block; }
-    .post-meta {
-      font-size: 24px;
-      color: #515151; }
-    .post-list > li {
-      margin-bottom: 60px;
-     }
+.post-list > li {
+  margin-bottom: 30px;
+}
 
-    .toc-category {
-      display: inline-block;
-      width: 200px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-right: 12px;
-      padding-left: 12px; }
+.post-list h3 {
+  margin-top: 12px;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #515151;
+}
+
+.toc-category {
+  display: inline-block;
+  padding: 8px 12px;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Mobile responsive */
+@media only screen and (max-width: 768px) {
+  .post-link {
+    font-size: 20px;
+  }
+
+  .post-meta {
+    font-size: 13px;
+  }
+
+  .post-list > li {
+    margin-bottom: 40px;
+  }
+
+  .toc-category {
+    padding: 12px 8px;
+    min-width: 70px;
+  }
 }

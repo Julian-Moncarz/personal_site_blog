@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../main.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Start teensy only">
+
+<title>Start teensy only - Julian Moncarz's Blog</title>
+</head>
+<body>
+<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+
+<div id="color-mode-switch">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <input type="checkbox" id="switch">
+  <label for="switch">Dark Mode Toggle</label>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+</div>
+
+<script type="text/javascript">
+  // Update root html class to set CSS colors
+  const toggleDarkMode = () => {
+    const root = document.querySelector('html');
+    root.classList.toggle('dark');
+  }
+
+  // Update local storage value for colorScheme
+  const toggleColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    if (colorScheme === 'light') localStorage.setItem('colorScheme', 'dark');
+    else localStorage.setItem('colorScheme', 'light');
+  }
+
+  // Set toggle input handler
+  const toggle = document.querySelector('#color-mode-switch input[type="checkbox"]');
+  if (toggle) toggle.onclick = () => {
+    toggleDarkMode();
+    toggleColorScheme();
+  }
+
+  // Check for color scheme on init
+  const checkColorScheme = () => {
+    const colorScheme = localStorage.getItem('colorScheme');
+    // Default to light for first view
+    if (colorScheme === null || colorScheme === undefined) localStorage.setItem('colorScheme', 'light');
+    // If previously saved to dark, toggle switch and update colors
+    if (colorScheme === 'dark') {
+      toggle.checked = true;
+      toggleDarkMode();
+    }
+  }
+  checkColorScheme();
+</script>
+
+<br>
+<h1 style="margin-bottom:7px"> Start teensy only </h1>
+<small style="float:left; color: #888"> 2025 Nov 12 </small>
+<small style="float:right; color: #888"><a href="../index.html">See all posts</a></small>
+<br> <br> <br>
+<title> Start teensy only </title>
+
+<p>Never start big. Start teensy.<br>
+All my big plans - waking up at 7:00 to study mech interp for 2h every day, stretching every day for 40 mins etc. They don't happen. I don't do them, because I make them all or nothing. The all is too big, so when other things pop up, I do nothing.</p>
+
+<p>Start teensy.</p>
+
+<p>Take the big, ambitious thing and then recite: "I start teensy". Figure out the smallest way you can take action on it. Do that. Build up. Or don't. Start teensy. Start big = don't start.</p>
+
+<p>Due to diminishing returns - the first bit is disproportionately valuable and you will get a huge boost from it!</p>
+
+<p>Examples:</p>
+
+<p>If you want to start stretching - start teensy! 1 min stretching each day<br>
+If you want to start mech interp, start with just 5 mins per day reading about a technique and understanding it</p>
+
+<p>If you want to start a blog, start by posting 1 thing in 1 place - set a 1h timer and post somewhere by the end of it. Or even better, post something you wrote already.</p>
+
+<p>If you want to get a job in a field, do a small thing (summer research etc) there first - get data.</p>
+
+<p>Start teensy and test - eg if you think something, test it in a teensy way.</p>
+
+<h3>Starting teensy only</h3>
+
+<p>Another helpful thing can be to ban yourself from doing more than the teensy amount. This is motivational - if someone tells you you cannot eat cookies, you often want to <em>eat them</em>. If you can only do a certain teensy amount of a new thing, that makes it a fun and precious commodity, which you will savour.</p>
+
+<p>It also helps with not overcommitting your time and having slack. Often, I will start a new project, which I enjoy (creating this site, for example), and instantly overcommit to it, at the expense of other things (homework, for example). Starting teensy only solves one problem: making new things into overly large commitments. That problem has two faces:</p>
+
+<ul>
+<li>not doing the thing ever because it is too big and scary to start</li>
+<li>starting the thing, overcommitting to it and having it negatively affect other things</li>
+</ul>
+
+<p>This is a rephrasing of a common piece of advice: "start small". The specific framing of "start teensy only" feels better for me.</p>
+
+<p>This site / post existing is a result of starting teensy! I had wanted to start a blog for a long time, but it was always too big a thing. Start teensy only. I sat down for 1 h and made it and posted.</p>
+
+</div>
+</body>
+</html>
