@@ -4,14 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
 (function() {
+  console.log('[Dark Mode INIT] Running inline initialization script');
   try {
     const colorScheme = localStorage.getItem('colorScheme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = colorScheme || (prefersDark ? 'dark' : 'light');
+    console.log('[Dark Mode INIT] colorScheme:', colorScheme, 'prefersDark:', prefersDark, 'theme:', theme);
     document.documentElement.className = theme;
+    console.log('[Dark Mode INIT] Set html class to:', theme);
   } catch(e) {
+    console.log('[Dark Mode INIT] Error:', e.message);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.className = prefersDark ? 'dark' : 'light';
+    console.log('[Dark Mode INIT] Fallback to:', prefersDark ? 'dark' : 'light');
   }
 })();
 </script>
@@ -46,7 +51,7 @@
 <title> Start teensy only </title>
 
 <p>Never start big. Start teensy.<br>
-All my big plans - waking up at 7:00 to study mech interp for 2h every day, stretching every day for 40 mins etc. They don't happen. I don't do them, because I make them all or nothing. The all is too big, so when other things pop up, I do nothing.</p>
+I have made a lot of big plans - waking up at 7:00 to study mech interp for 2h every day, stretching every day for 40 mins etc. They don't happen. I don't do them, because I make them all or nothing. The all is too big, so when other things pop up, I do nothing.</p>
 
 <p>Start teensy.</p>
 
@@ -63,7 +68,7 @@ If you want to start mech interp, start with just 5 mins per day reading about a
 
 <p>If you want to get a job in a field, do a small thing (look at a few profs in the feild for 5 mins - make a list of emails) there first. </p>
 
-<h3>Starting teensy only</h3>
+<h3>Why only</h3>
 
 <p>Another helpful thing can be to ban yourself from doing more than the teensy amount. This is motivational - if someone tells you you cannot eat cookies, you often want to <em>eat them</em>. If you can only do a certain teensy amount of a new thing, that makes it a fun and precious commodity, which you will savour.</p>
 

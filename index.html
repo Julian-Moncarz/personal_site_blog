@@ -4,14 +4,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script>
 (function() {
+  console.log('[Dark Mode INIT] Running inline initialization script');
   try {
     const colorScheme = localStorage.getItem('colorScheme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = colorScheme || (prefersDark ? 'dark' : 'light');
+    console.log('[Dark Mode INIT] colorScheme:', colorScheme, 'prefersDark:', prefersDark, 'theme:', theme);
     document.documentElement.className = theme;
+    console.log('[Dark Mode INIT] Set html class to:', theme);
   } catch(e) {
+    console.log('[Dark Mode INIT] Error:', e.message);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.className = prefersDark ? 'dark' : 'light';
+    console.log('[Dark Mode INIT] Fallback to:', prefersDark ? 'dark' : 'light');
   }
 })();
 </script>
