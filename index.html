@@ -46,12 +46,21 @@
 
   const checkColorScheme = () => {
     const colorScheme = localStorage.getItem('colorScheme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
     if (colorScheme === null || colorScheme === undefined) {
-      localStorage.setItem('colorScheme', 'light');
-    }
-    if (colorScheme === 'dark' && toggle) {
+      if (prefersDark) {
+        localStorage.setItem('colorScheme', 'dark');
+        if (toggle) {
+          toggle.checked = true;
+          document.querySelector('html').classList.add('dark');
+        }
+      } else {
+        localStorage.setItem('colorScheme', 'light');
+      }
+    } else if (colorScheme === 'dark' && toggle) {
       toggle.checked = true;
-      toggleDarkMode();
+      document.querySelector('html').classList.add('dark');
     }
   }
   checkColorScheme();
