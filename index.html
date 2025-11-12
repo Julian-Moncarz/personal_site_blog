@@ -10,7 +10,7 @@
 <title>Julian Moncarz's blog</title>
 </head>
 <body>
-<div id="doc" class="container-fluid markdown-body comment-enabled" data-hard-breaks="true">
+<div class="container-fluid markdown-body">
 
 <div id="color-mode-switch">
   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -37,11 +37,13 @@
     else localStorage.setItem('colorScheme', 'light');
   }
 
+  const handleToggle = () => {
+    toggleDarkMode();
+    toggleColorScheme();
+  };
+  
   if (toggle) {
-    toggle.onclick = () => {
-      toggleDarkMode();
-      toggleColorScheme();
-    }
+    toggle.addEventListener('change', handleToggle);
   }
 
   const checkColorScheme = () => {
