@@ -2,6 +2,19 @@
 <html class="">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+(function() {
+  try {
+    const colorScheme = localStorage.getItem('colorScheme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = colorScheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.className = theme;
+  } catch(e) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.className = prefersDark ? 'dark' : 'light';
+  }
+})();
+</script>
 <link rel="stylesheet" type="text/css" href="./main.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
